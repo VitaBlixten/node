@@ -18,24 +18,33 @@
     <div class="header">
         <nav class="centerH">
             <ul class="nav-links">
-                <li><h2>NTI Gymnasiet Uppsala LanCrew</h2></li>
+                <nav>
+                    <div class="menu">
+                        <li><a href="index.html">Hem</a></li>                                                                       
+                        <li><a href="login.html">Logga in</a></li>
+                        <li><a href="anmalan.html">Anmälan</a></li>                                                                         
+                        <li><a href="spel.html">Spel</a></li>
+                        <li><a href="https://docs.google.com/spreadsheets/d/1A8BfZAjlGe745SneXXCBcTMY1PCLLWaR_btkcEQZ6U0/edit?usp=sharing">Platskarta</a></li>                                                                                                                                                   
+                    </div>
+                </nav>
             </ul>
         </nav>
     </div>
     
     <div class="center">
-    <h1>Bli medlem</h1>
+    <h1>Anmälan till LAN:et</h1>
         <div class="Box">
-            <input type="text" id="förnamn" class="form-control" placeholder="Förnamn"><br>
-            <input type="text" id="efternamn" class="form-control" placeholder="Efternamn"><br>
-            <input type="text" id="discord"  class="form-control" placeholder='Discord'><br>
-            <input type="epost" id="epost" class="form-control" pattern=".+@elev.ntig\.com" required placeholder='Epost "@elev.ntig.com"'><br><br>
-            <fieldset>
-            <legend>Accepterar du att NTI Gymnasiet Uppsala LanCrew förvarar dina uppgifter?</legend>
-
+            <input type="text" id="plats" class="form-control" placeholder="Plats"><br>
             <div>
-            <input type="checkbox" id="accept" name="accept">
-            <label for="accept">Jag accepterar</label>
+                <input type="checkbox" id="elevkar" name="elevkar">
+                <label for="accept">Jag är medlem i elevkåren</label>
+            </div> <br>
+            <p>Vill du vara med på någon av dessa tuneringar?</p>
+            <div>
+                <input type="checkbox" id="Smash" name="Smash">
+                <label for="accept">Super Smash Bros. Ultimate</label> <br>
+                <input type="checkbox" id="Tetr.io" name="Tetr.io">
+                <label for="accept">Tetr.io</label>
             </div>
             </fieldset>
             <button id="send" class="btn btn-success">Skicka</button>
