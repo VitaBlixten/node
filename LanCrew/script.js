@@ -13,24 +13,23 @@ $(() => {
 })
 
 socket.on("medlem", addMedlem);
-socket.on("medlem", addMedlem);
 
 function addMedlem(medlem){
     $("#medlem").append(`<h4> ${medlem.status} </h4> <p>Namn: ${medlem.förnamn} ${medlem.efternamn}, Discord id: ${medlem.discord}, Epost: ${medlem.epost} </p>`);
 }
 
 function getMedlem(){
-    $.get("http://localhost:3000/medlem", (data) => {
+    $.get("http://localhost:34739/medlem", (data) => {
         data.forEach(addMedlem);
     });
 }
 
 function postMedlem(medlem){
-    $.post("http://localhost:3000/medlem", medlem);
+    $.post("http://localhost:34739/medlem", medlem);
 }
 
 function otherSite(){
-    window.location.href = "http://localhost:3000/medlemmar.html";
+    window.location.href = "http://localhost:34739/medlemmar.html";
 };
 
 $(document).ready(function() {

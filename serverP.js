@@ -3,32 +3,47 @@ const bodyParser = require("body-parser");
 const app = express();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
+const mongoose = require("mongoose");
 
 app.use(express.static("./LanCrew"));
 app.use(bodyParser.urlencoded({extended: false}));
 
-let medlem = [
-    {status: "Ordförande", förnamn: "Erik", efternamn: "Moreno", discord: "Em#1245", epost: "erik.moreno@elev.ntig.se"},
-    {status: "Vice ordförande",förnamn: "Erik", efternamn: "Engdahl", discord: "Ed#1245", epost: "erik.engdahl@elev.ntig.se"},
-    {status: "Ekonomi ansvarig",förnamn: "Marcus", efternamn: "Merio", discord: "Ed#1245", epost: "markus.merio@elev.ga.ntig.se"},
-    {status: "IT-ansvarig",förnamn: "Erik", efternamn: "Cunningham", discord: "Ed#1245", epost: "erik.cunningham@elev.ntig.se"},
-    {status: "Tunerings ansvarig",förnamn: "Hannes", efternamn: "Kindahl", discord: "Ed#1245", epost: "hannes.kindahl@elev.ntig.se"}
-]
+const dbUrl = "mongodb+srv://Vita:K4a0Zkeyg8y6yTDN@cluster0.fqazhbr.mongodb.net/?retryWrites=true&w=majority"
 
-let tot = [{gamer: 1},{gamer: 2},{gamer: 3},{gamer: 4}]
-
-app.get("/medlem", (req, res) => {
-    res.send(medlem);
+let Medlem = mongoose.model("Medlem", {
+    status: String,
+    förnamn: String,
+    efternamn: String,
+    discord: String,
+    epost: String
 })
 
+app.get("/medlem", (req, res) => {
+
+    Medlem.find({}, (err, medlemmar) => {
+        res.send(medlemmar);
+    });
+});
+
 app.post("/medlem", (req, res) => {
-    medlem.push(req.body);
-    io.emit("medlem", req.body);
-    res.sendStatus(200);
-})  
+    let medlemmar = new Medlem(req.body);
+
+    medlemmar.save((err) => {
+        if(err){
+            sendStatus(500);
+        }
+
+        io.emit("medlemmar", req.body);
+        res.sendStatus(200);
+    });
+});
 
 io.on("connection", (socket) => {
     console.log("En användare anslöt!");
+})
+
+mongoose.connect(dbUrl, (err) => {
+    console.log("mongo db connection", err);
 })
 
 http.listen(34739, () => {
