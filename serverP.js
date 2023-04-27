@@ -4,9 +4,11 @@ const app = express();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 
 app.use(express.static("./LanCrew"));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
 
 const dbUrl = "mongodb+srv://Vita:K4a0Zkeyg8y6yTDN@cluster0.fqazhbr.mongodb.net/?retryWrites=true&w=majority"
 
@@ -23,6 +25,8 @@ app.get("/medlem", (req, res) => {
     Medlem.find({}, (err, medlemmar) => {
         res.send(medlemmar);
     });
+    res.cookie("Besök", "1");
+    res.send('user data added to cookie');
 });
 
 app.post("/medlem", (req, res) => {
