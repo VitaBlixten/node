@@ -1,22 +1,12 @@
 let socket = io();
 
 $(() => {
-
-    $("#send").click(() => {
-        var medlem = {status:"Medlem", förnamn: $("#förnamn").val(), efternamn: $("#efternamn").val(), discord: $("#discord").val(), epost: $("#epost").val()};
-        postMedlem(medlem);
-        setTimeout(otherSite, 1);
-    })  
-
-
-    getMedlem();
+    $("send").click(() => {
+            console.log("hej");
+        });
 })
 
-socket.on("medlem", addMedlem);
-
-function addMedlem(medlem){
-    $("#medlem").append(`<h4> ${medlem.status} </h4> <p>Namn: ${medlem.förnamn} ${medlem.efternamn}, Discord id: ${medlem.discord}, Epost: ${medlem.epost} </p>`);
-}
+///socket.on("medlem", addMedlem);
 
 function getMedlem(){
     $.get("http://localhost:34739/medlem", (data) => {
@@ -29,7 +19,7 @@ function postMedlem(medlem){
 }
 
 function otherSite(){
-    window.location.href = "http://localhost:34739/medlemmar.html";
+    window.location.href = "http://localhost:34739/";
 };
 
 $(document).ready(function() {

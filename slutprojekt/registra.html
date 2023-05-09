@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
+    <script src="konto.js"></script
 </head>
 <body>
     <div class="header">
@@ -32,20 +33,22 @@
     <div class="center">
         <h1>Skapa ett konto</h1><br>
             <div class="Box">
-                <input type="text" id="förnamn" class="form-control" placeholder="Förnamn"><br>
-                <input type="text" id="efternamn" class="form-control" placeholder="Efternamn"><br>
-                <input type="text" id="klass"  class="form-control" placeholder='Klass'><br>
-                <input type="text" id="discord"  class="form-control" placeholder='Discord'><br>
-                <input type="epost" id="epost" class="form-control" pattern=".+@elev.ntig\.com" required placeholder='Epost "@elev.ntig.com"'><br>
-                <input type="lösenord" id="lösenord" class="form-control" required placeholder='Lösenord'><br>
-                <fieldset>
-                <p>Accepterar du att NTI Gymnasiet Uppsala LAN-Förening förvarar dina uppgifter?</p>
-                <div>
-                    <input type="checkbox" id="accept" name="accept">
-                    <label for="accept">Jag accepterar</label>
-                </div>
-                </fieldset>
-                <button id="send" class="btn btn-success">Skicka</button>
+                <form>
+                    <input type="text" id="förnamn" class="form-control" placeholder="Förnamn"><br>
+                    <input type="text" id="efternamn" class="form-control" placeholder="Efternamn"><br>
+                    <input type="text" id="klass"  class="form-control" placeholder='Klass'><br>
+                    <input type="text" id="discord"  class="form-control" placeholder='Discord'><br>
+                    <input type="epost" id="epost" class="form-control" required placeholder='Epost "@elev.ntig.com"'><br>
+                    <input type="lösenord" id="lösenord" class="form-control" required placeholder='Lösenord'><br>
+                    <fieldset>
+                    <p>Accepterar du att NTI Gymnasiet Uppsala LAN-Förening förvarar dina uppgifter?</p>
+                    <div>
+                        <input type="checkbox" id="accept" name="accept">
+                        <label for="accept">Jag accepterar</label>
+                    </div>
+                    </fieldset>
+                    <button id="reg" class="btn btn-success">Skicka</button>
+                </form>
             </div>
         </div>
     </body>
