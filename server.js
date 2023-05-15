@@ -47,6 +47,11 @@ app.use(express.static("./slutprojekt"));
         if (err) throw err;
     });
 });
+
+  app.post("/login", (req, res) => {
+    var upp = []
+
+})
   
   http.listen(34739, () => {
       console.log("Servern körs, besök http://localhost:34739");
