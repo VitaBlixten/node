@@ -8,12 +8,9 @@
     <link rel="icon" type="image/png" href="LAN.png">
     <link rel="stylesheet" href="style.css" media="only screen and (min-width: 1025px)">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
-    <script src="konto.js"></script
+    
 </head>
+
 <body>
     <div class="header">
         <nav class="centerH">
@@ -38,8 +35,8 @@
                     <input type="text" id="efternamn" class="form-control" placeholder="Efternamn"><br>
                     <input type="text" id="klass"  class="form-control" placeholder='Klass'><br>
                     <input type="text" id="discord"  class="form-control" placeholder='Discord'><br>
-                    <input type="epost" id="epost" class="form-control" required placeholder='Epost "@elev.ntig.com"'><br>
-                    <input type="lösenord" id="lösenord" class="form-control" required placeholder='Lösenord'><br>
+                    <input type="epost" id="epost" class="form-control" placeholder='Epost "@elev.ntig.com"'><br>
+                    <input type="password" id="lösenord" class="form-control" placeholder='Lösenord'><br>
                     <fieldset>
                     <p>Accepterar du att NTI Gymnasiet Uppsala LAN-Förening förvarar dina uppgifter?</p>
                     <div>
@@ -47,9 +44,14 @@
                         <label for="accept">Jag accepterar</label>
                     </div>
                     </fieldset>
-                    <button id="reg" class="btn btn-success">Skicka</button>
+                    <button type="button" id="reg" class="btn btn-success">Skicka</button>
                 </form>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="script.js"></script>
+        <script src="konto.js"></script>
     </body>
 </html>

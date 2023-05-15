@@ -1,10 +1,10 @@
 let socket = io();
 
-$(() => {
-    $("send").click(() => {
-            console.log("hej");
-        });
-})
+// $(() => {
+//     $("send").click(() => {
+//             console.log("hej");
+//         });
+// })
 
 ///socket.on("medlem", addMedlem);
 

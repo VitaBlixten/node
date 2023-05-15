@@ -29,10 +29,25 @@ app.use(express.static("./slutprojekt"));
 });
 
   app.post("/konton", (req, res) => {
-    var allt = {}
-    console.log(req.body);
-});
+    var namn = []
+    
+    namn.push(req.body["förnamn"])
+    namn.push(req.body["efternamn"])
+    namn.push(req.body["klass"])
+    namn.push(req.body["discord"])
+    namn.push(req.body["epost"])
+    namn.push(req.body["password"])
+    
+    console.log(namn);
+    
+    var sql = "INSERT INTO konto (förnamn, efternamn, klass, discord, epost, password) VALUES ?";
+    var values = [namn];
 
+    connection.query(sql, [values], function(err) {
+        if (err) throw err;
+    });
+});
+  
   http.listen(34739, () => {
       console.log("Servern körs, besök http://localhost:34739");
   })

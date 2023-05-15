@@ -2,15 +2,27 @@
 $(() => {
 
     $("#reg").click(() => {
-        var konto = {förnamn: $("#förnamn").val(), efternamn: $("#efternamn").val(), klass: $("#klass").val(), discord: $("#discord").val(), epost: $("#epost").val(), password: $("#password").val()};
+        var konto = ({förnamn: $("#förnamn").val(), efternamn: $("#efternamn").val(), klass: $("#klass").val(), discord: $("#discord").val(), epost: $("#epost").val(), password: $("#lösenord").val()});
         postKonto(konto);
-    })  
+        setTimeout(sendSite, 10);
+    });
+
+    $("#lin").click(() => {
+        var konto = ({epost: $("#epost").val(), password: $("#lösenord").val()});
+
+        sendSite()
+    });
+
 
 })
 
 function postKonto(konton){
     $.post("http://localhost:34739/konton", konton);
 }
+
+function sendSite(){
+    window.location.href = "http://localhost:34739/indexl.html";
+};
 
 $(document).ready(function() {
     var button = $('#reg');
