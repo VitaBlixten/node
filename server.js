@@ -50,6 +50,21 @@ app.use(express.static("./slutprojekt"));
 
   app.post("/login", (req, res) => {
     var upp = []
+    upp.push(req.body["epost"])
+
+    var sql1 = "SELECT (e-post, password) FROM slutprojekt.konto;";
+
+    connection.query(sql1, function(err, result) {
+      if (result["epost2"] = req.body["epost2"]) {
+
+      }
+
+      if (result["password2"] = req.body["password2"]) {
+        
+      }
+
+      if (err) throw err;
+  });
 
 })
   
