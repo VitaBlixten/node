@@ -1,3 +1,5 @@
+var socket = io();
+socket.on("login", redirect)
 
 $(() => {
 
@@ -8,16 +10,23 @@ $(() => {
     });
 
     $("#lin").click(() => {
-        var konto = ({epost: $("#epost").val(), password: $("#lösenord").val()});
-
-        sendSite()
+        var konto2 = ({epost: $("#epost2").val(), password: $("#password2").val()});
+        postLogin(konto2);
     });
 
 
 })
 
+function redirect(){
+    window.location.href = "http://localhost:34739/indexl.html";
+  }
+
 function postKonto(konton){
     $.post("http://localhost:34739/konton", konton);
+}
+
+function postLogin(login){
+    $.post("http://localhost:34739/login", login);
 }
 
 function sendSite(){

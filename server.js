@@ -48,20 +48,28 @@ app.use(express.static("./slutprojekt"));
     });
 });
 
+  app.get("/login", (req, res) => {
+    res.redirect('/indexl.html');
+  })
+
   app.post("/login", (req, res) => {
-    var upp = []
-    upp.push(req.body["epost"])
+    var upp = [req.body["epost2"], req.body["password2"]]
+    
+    console.log(req.body);
+    var sql1 = "SELECT * FROM slutprojekt.konto;";
 
-    var sql1 = "SELECT (e-post, password) FROM slutprojekt.konto;";
-
-    connection.query(sql1, function(err, result) {
-      if (result["epost2"] = req.body["epost2"]) {
-
-      }
-
-      if (result["password2"] = req.body["password2"]) {
+    connection.query(sql1, function(err, result, field) {
+      var numRows = result.length;
+      console.log(numRows);
+      for (var i = 0; i < numRows; i++) {
+        if (result[i]["epost"] === req.body["epost"]) {
         
+          if (result[i]["password"] === req.body["password"]) {
+            console.log("hej");
+            io.emit("login", req.body)
+        }
       }
+    }
 
       if (err) throw err;
   });
